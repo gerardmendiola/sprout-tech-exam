@@ -1,21 +1,8 @@
-import { createApp } from 'vue'
-import './style.css'
+import Vue from 'vue'
 import App from './App.vue'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from './components/Dashboard.vue'
+Vue.config.productionTip = false
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
-        {
-            path: '/',
-            name: 'Dashboard',
-            component: Dashboard
-        }
-    ]
-})
-
-createApp(App).use(router).mount('#app')
-// app.component('font-awesome-icon', FontAwesomeIcon)
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
