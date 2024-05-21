@@ -1,13 +1,21 @@
-import Vue, { createApp } from 'vue'
+import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-
-import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-const app = createApp(App).mount('#app')
+import { createRouter, createWebHistory } from 'vue-router'
+import Dashboard from './components/Dashboard.vue'
 
-app.component('font-awesome-icon', FontAwesomeIcon)
-// createApp(App).mount('#app')
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {
+            path: '/',
+            name: 'Dashboard',
+            component: Dashboard
+        }
+    ]
+})
+
+createApp(App).use(router).mount('#app')
+// app.component('font-awesome-icon', FontAwesomeIcon)
